@@ -14,5 +14,6 @@ function commonLongestPrefix(arr){
 }
 
 // let array = ["flower", "flow","flutter"];
-let array = [];
+// let array = [];
+let array = ["dog", "dog", "dog"];
 console.log(commonLongestPrefix(array));
