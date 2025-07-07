@@ -20,19 +20,43 @@
 
 // using the brute force with the visited tracking array...
 
+// function intersectionOfTwoSortedArray(arr1, arr2){
+//     const intersectArray = new Array();
+//     const visitedArray = new Array(arr2.length).fill(0);
+//     for(let i=0; i<arr1.length; i++){
+//         for(let j=0; j<arr2.length; j++){
+//             if(arr1[i]==arr2[j] && visitedArray[j] == 0 ){
+//                 intersectArray.push(arr1[i]);
+//                 visitedArray[j] = 1;
+//                 break;
+//             }
+//             if(arr2[j]>arr1[i]){
+//                 break;
+//             }
+//         }
+//     }
+//     return intersectArray;
+// }
+
+
+// using the Two pointer approach for optimal solution.....
+
 function intersectionOfTwoSortedArray(arr1, arr2){
     const intersectArray = new Array();
-    const visitedArray = new Array(arr2.length).fill(0);
-    for(let i=0; i<arr1.length; i++){
-        for(let j=0; j<arr2.length; j++){
-            if(arr1[i]==arr2[j] && visitedArray[j] == 0 ){
-                intersectArray.push(arr1[i]);
-                visitedArray[j] = 1;
-                break;
-            }
-            if(arr2[j]>arr1[i]){
-                break;
-            }
+    let i = 0, j = 0;
+    while(i<arr1.length && j<arr2.length){
+        if(arr1[i] > arr2[j]){
+            j++;
+            continue;
+        }
+        if(arr2[j] > arr1[i]){
+            i++;
+            continue;
+        }
+        if(arr1[i]==arr2[j]){
+            intersectArray.push(arr1[i]);
+            i++;
+            j++;
         }
     }
     return intersectArray;
