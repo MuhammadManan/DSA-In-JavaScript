@@ -47,13 +47,11 @@ function intersectionOfTwoSortedArray(arr1, arr2){
     while(i<arr1.length && j<arr2.length){
         if(arr1[i] > arr2[j]){
             j++;
-            continue;
         }
-        if(arr2[j] > arr1[i]){
-            i++;
-            continue;
+        else if(arr2[j] > arr1[i]){
+            i++; 
         }
-        if(arr1[i]==arr2[j]){
+        else{
             intersectArray.push(arr1[i]);
             i++;
             j++;
