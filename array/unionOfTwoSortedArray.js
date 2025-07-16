@@ -57,5 +57,5 @@ function unionOfTwoSortedArrays(arr1, arr2){
 
 const array1 = [1, 1, 2, 3, ];
 const array2 = [2, 3, 4, 5, 6];
-const array3 = [1, 2, 3, 4, 5, 6]; 
+const array3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; 
 console.log(unionOfTwoSortedArrays(array1, array2));
