@@ -41,20 +41,20 @@
 
 // ***************************************/
 
-function reverseArray(arr) {
-  // return reversed array
-  if(!arr || arr.length === 0 ){
-    return "An Empty Array.";
-  }
-  let newArr=[];
+// function reverseArray(arr) {
+//   // return reversed array
+//   if(!arr || arr.length === 0 ){
+//     return "An Empty Array.";
+//   }
+//   let newArr=[];
 
-  for(let i=arr.length-1;i>=0; i--){
-    newArr.push(arr[i]);
-  }
-  return newArr;
-}
+//   for(let i=arr.length-1;i>=0; i--){
+//     newArr.push(arr[i]);
+//   }
+//   return newArr;
+// }
 
-console.log(reverseArray([1, 2, 3]));
+// console.log(reverseArray([1, 2, 3]));
 
 
 //**************************** */
@@ -93,3 +93,29 @@ console.log(reverseArray([1, 2, 3]));
 
 //********************************************** */
 
+function isAnagram(s, t) {
+  // your code
+  if(!s && !t || s.length === 0 && t.length === 0 ) {
+    return "Strings are empty...";
+  }
+  
+  if(s.length !== t.length){
+    return false;
+  }
+
+  let freq1 = {};
+  let freq2 = {};
+
+  for(let i=0; i<s.length; i++){
+    if(freq1[s[i]] !==undefined){
+        freq1[s[i]]++;
+    }
+    else{
+        freq1[s[i]]=1;
+    }
+
+  }
+}
+
+
+console.log(isAnagram("listen","silent"))
