@@ -41,55 +41,55 @@
 
 // ***************************************/
 
-// function reverseArray(arr) {
-//   // return reversed array
-//   if(!arr || arr.length === 0 ){
-//     return "An Empty Array.";
-//   }
-//   let newArr=[];
+function reverseArray(arr) {
+  // return reversed array
+  if(!arr || arr.length === 0 ){
+    return "An Empty Array.";
+  }
+  let newArr=[];
 
-//   for(let i=arr.length-1;i>=0; i--){
-//     newArr.push(arr[i]);
-//   }
-//   return newArr;
-// }
+  for(let i=arr.length-1;i>=0; i--){
+    newArr.push(arr[i]);
+  }
+  return newArr;
+}
 
-// console.log(reverseArray([1, 2, 3]));
+console.log(reverseArray([1, 2, 3]));
 
 
 //**************************** */
 
-function firstUniqueChar(str) {
-  // your code
-  if (!str || str.length === 0) {
-    return "An Empty String...";
-  }
+// function firstUniqueChar(str) {
+//   // your code
+//   if (!str || str.length === 0) {
+//     return "An Empty String...";
+//   }
 
-  let freq = {};
+//   let freq = {};
 
-  for(let i=0; i<str.length; i++){
-    let char = str[i];
+//   for(let i=0; i<str.length; i++){
+//     let char = str[i];
 
-    if(freq[char] !== undefined){ 
-        freq[char]++;
-        // console.log( freq[char]++);
-        // console.log(freq);
-    }else{
-        freq[char]=1;
-        // console.log(freq);
-    }
-  }
+//     if(freq[char] !== undefined){ 
+//         freq[char]++;
+//         // console.log( freq[char]++);
+//         // console.log(freq);
+//     }else{
+//         freq[char]=1;
+//         // console.log(freq);
+//     }
+//   }
   
-  for(let i=0; i<str.length; i++){
-    if(freq[str[i]] === 1){
-        return str[i];
-    }
-  }
+//   for(let i=0; i<str.length; i++){
+//     if(freq[str[i]] === 1){
+//         return str[i];
+//     }
+//   }
 
 
-}
+// }
 
-console.log(firstUniqueChar("leetcode"));
+// console.log(firstUniqueChar("leetcode"));
 
 //********************************************** */
 
