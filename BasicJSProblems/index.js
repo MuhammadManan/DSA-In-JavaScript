@@ -5,8 +5,6 @@
 // }
 // console.log(isEven(10));
 
-const { jsx } = require("react/jsx-runtime");
-
 // **************************
 
 // function findMax(arr) {
@@ -95,42 +93,77 @@ const { jsx } = require("react/jsx-runtime");
 
 //********************************************** */
 
-function isAnagram(s, t) {
-  // your code
-  if(!s || !t ) {
-    return false;
-  }
+// function isAnagram(s, t) {
+//   // your code
+//   if(!s || !t ) {
+//     return false;
+//   }
   
-  if(s.length !== t.length){
-    return false;
-  }
+//   if(s.length !== t.length){
+//     return false;
+//   }
 
-  let freq = {};
+//   let freq = {};
 
-  // counting the characters...
-  for(let i=0; i<s.length; i++){
-    if(freq[s[i]] ===undefined){
-        freq[s[i]] = 1;
+//   // counting the characters...
+//   for(let i=0; i<s.length; i++){
+//     if(freq[s[i]] ===undefined){
+//         freq[s[i]] = 1;
+//     }
+//     else{
+//         freq[s[i]]++;
+//     }
+//   }
+
+//   console.log(freq);
+
+//   //Reducing the character
+//   for(let i=0; i<t.length; i++){
+//      if(!freq[t[i]]){
+//         return false;
+//      }
+//      freq[t[i]]--;
+//      console.log(freq);
+//   }
+
+//   return true;
+
+// }
+
+
+// console.log(isAnagram("listen","silint"));
+
+/********************************************** */
+
+
+function countVowels(str){
+    // Here's the code
+
+    if(!str || str.length === 0) return "An Empty String..";
+
+    str = str.toLowerCase();
+    
+    let vowels = ["a", "e", "i", "o", "u"];
+    
+    let freq = {};
+
+    for(let i=0; i<str.length; i++ ){
+        if(!freq[str[i]]){
+            freq[str[i]] = 1;
+        }else{
+            freq[str[i]]++;
+        }
     }
-    else{
-        freq[s[i]]++;
+     
+    let count = 0 ;
+    for(let i=0; i<vowels.length; i++){
+        if(freq[vowels[i]]){
+            count = count + freq[vowels[i]] 
+        }
     }
-  }
+    // console.log(freq);
 
-  console.log(freq);
-
-  //Reducing the character
-  for(let i=0; i<t.length; i++){
-     if(!freq[t[i]]){
-        return false;
-     }
-     freq[t[i]]--;
-     console.log(freq);
-  }
-
-  return true;
-
+    return count;
 }
 
-
-console.log(isAnagram("listen","silint"));
+console.log(countVowels("javascript"));
