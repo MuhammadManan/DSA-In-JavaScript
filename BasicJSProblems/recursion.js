@@ -17,6 +17,12 @@
 
 function factorial(n) {
   // return factorial of n
+  if(n<0) return null;
+  // Base case
+  if(n=== 0 || n===1) return 1;
+
+  // Recursive case
+  return n * factorial(n-1);
 }
 
-factorial(5);
+console.log(factorial(5));
