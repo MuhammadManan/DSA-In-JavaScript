@@ -5,6 +5,8 @@
 // }
 // console.log(isEven(10));
 
+const { jsx } = require("react/jsx-runtime");
+
 // **************************
 
 // function findMax(arr) {
@@ -103,34 +105,27 @@ function isAnagram(s, t) {
     return false;
   }
 
-  let freq1 = {};
-  let freq2 = {};
+  let freq = {};
 
+  // counting the characters...
   for(let i=0; i<s.length; i++){
-    if(freq1[s[i]] ===undefined){
-        freq1[s[i]] = 1;
+    if(freq[s[i]] ===undefined){
+        freq[s[i]] = 1;
     }
     else{
-        freq1[s[i]]++;
+        freq[s[i]]++;
     }
   }
 
+  console.log(freq);
+
+  //Reducing the character
   for(let i=0; i<t.length; i++){
-    if(freq2[t[i]] ===undefined){
-        freq2[t[i]] = 1;
-    }
-    else{
-        freq2[t[i]]++;
-    }
-  }
-
-  let totalKeys = Object.keys(freq1);
-//   console.log(totalKeys.length);
-
-  for(let i=0; i<totalKeys.length; i++){
-    if(freq1[totalKeys[i]] !== freq2[totalKeys[i]]){
+     if(!freq[t[i]]){
         return false;
-    }
+     }
+     freq[t[i]]--;
+     console.log(freq);
   }
 
   return true;
@@ -138,4 +133,4 @@ function isAnagram(s, t) {
 }
 
 
-console.log(isAnagram("listen","silent"))
+console.log(isAnagram("listen","silint"));
