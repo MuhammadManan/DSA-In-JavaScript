@@ -95,8 +95,8 @@
 
 function isAnagram(s, t) {
   // your code
-  if(!s && !t || s.length === 0 && t.length === 0 ) {
-    return "Strings are empty...";
+  if(!s || !t ) {
+    return false;
   }
   
   if(s.length !== t.length){
@@ -107,14 +107,34 @@ function isAnagram(s, t) {
   let freq2 = {};
 
   for(let i=0; i<s.length; i++){
-    if(freq1[s[i]] !==undefined){
-        freq1[s[i]]++;
+    if(freq1[s[i]] ===undefined){
+        freq1[s[i]] = 1;
     }
     else{
-        freq1[s[i]]=1;
+        freq1[s[i]]++;
     }
-
   }
+
+  for(let i=0; i<t.length; i++){
+    if(freq2[t[i]] ===undefined){
+        freq2[t[i]] = 1;
+    }
+    else{
+        freq2[t[i]]++;
+    }
+  }
+
+  let totalKeys = Object.keys(freq1);
+//   console.log(totalKeys.length);
+
+  for(let i=0; i<totalKeys.length; i++){
+    if(freq1[totalKeys[i]] !== freq2[totalKeys[i]]){
+        return false;
+    }
+  }
+
+  return true;
+
 }
 
 
