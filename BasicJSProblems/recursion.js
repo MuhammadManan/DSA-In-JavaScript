@@ -44,21 +44,45 @@
 
 /*********************************** */
 
-function findMax(arr, i = 0,) {
-  // return max value
-  if(!arr || arr.length === 0 ) return null;
-  // Base Case
-  if(i === arr.length-1) return arr[i];
+// function findMax(arr, i = 0,) {
+//   // return max value
+//   if(!arr || arr.length === 0 ) return null;
+//   // Base Case
+//   if(i === arr.length-1) return arr[i];
 
-  // Recursive Call
-//   let max = findMax(arr, i+1);
-//   if(arr[i] > max){
-//     max = arr[i];
-//     return max;
-//   }
-//   return max;
-  return Math.max(arr[i], findMax(arr, i + 1));
+//   // Recursive Call
+// //   let max = findMax(arr, i+1);
+// //   if(arr[i] > max){
+// //     max = arr[i];
+// //     return max;
+// //   }
+// //   return max;
+//   return Math.max(arr[i], findMax(arr, i + 1));
+// }
+
+// // console.log(findMax([]));
+// console.log(findMax([3, 7, 10, 2, 9]));
+
+// ****************************************************
+
+function countChar(str, ch, i = 0) {
+  // return count
+  if(!str || str.length === 0 ) return 0;
+  // Base case
+  if(i === str.length-1){
+    if(str[i] === ch ){
+        return 1;
+    }
+    return 0;
+  }
+
+  // Recursive case
+  let count = countChar(str,ch, i+1);
+  if(str[i] === ch){
+    count = count + 1 ;
+    return count;
+  }
+  return count;
 }
 
-// console.log(findMax([]));
-console.log(findMax([3, 7, 10, 2, 9]));
+console.log(countChar("banana", "a"));
