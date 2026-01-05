@@ -51,12 +51,13 @@ function findMax(arr, i = 0,) {
   if(i === arr.length-1) return arr[i];
 
   // Recursive Call
-  let max = findMax(arr, i+1);
-  if(arr[i] > max){
-    max = arr[i];
-    return max;
-  }
-  return max;
+//   let max = findMax(arr, i+1);
+//   if(arr[i] > max){
+//     max = arr[i];
+//     return max;
+//   }
+//   return max;
+  return Math.max(arr[i], findMax(arr, i + 1));
 }
 
 // console.log(findMax([]));
