@@ -94,27 +94,35 @@
 
 function isSorted(arr, i = 0) {
   // return true or false
-  if(!arr || arr.length === 0) return null;
-
+  // if(!arr || arr.length === 0) return null;
+  if(!Array.isArray(arr)) return false;
+  if(arr.length === 1) return true;
   // Base case
-  if(i === arr.length -2 ){
-    // console.log("Base case...");
-    if(arr[i] <= arr[i+1]){
-        // console.log(`yup, Inside the base case, ${i} <= ${i+1}`);
-        return true;
-    }
-    return false;
-  }
+//   if(i === arr.length -2 ){
+//     // console.log("Base case...");
+//     if(arr[i] <= arr[i+1]){
+//         // console.log(`yup, Inside the base case, ${i} <= ${i+1}`);
+//         return true;
+//     }
+//     return false;
+//   }
+
+  if(i === arr.length-1) return true;
 
   // Recursive case
 //   console.log("Recursive Case...")
-  if(arr[i]<= arr[i+1]){
-    // console.log(`yup ${i} <= ${i+1}`);
-    return isSorted(arr, i+1);
-  }else{
-    return false;
-  }
+//   if(arr[i]<= arr[i+1]){
+//     // console.log(`yup ${i} <= ${i+1}`);
+//     return isSorted(arr, i+1);
+//   }else{
+//     return false;
+//   }
+
+  if(arr[i]> arr[i+1]) return false;
+
+  return isSorted(arr, i+1);
 
 }
 
 console.log(isSorted([-3,-2, 0, 1, 2, 3, 3, 4]));
+// console.log(isSorted({}));
