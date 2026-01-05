@@ -65,26 +65,56 @@
 
 // ****************************************************
 
-function countChar(str, ch, i = 0) {
-  // return count
-  if(!str || str.length === 0 ) return 0;
+// function countChar(str, ch, i = 0) {
+//   // return count
+//   if(!str || str.length === 0 ) return 0;
+//   // Base case
+// //   if(i === str.length-1){
+// //     if(str[i] === ch ){
+// //         return 1;
+// //     }
+// //     return 0;
+// //   }
+//     if(i === str.length) return 0;
+
+//   // Recursive case
+// //   let count = countChar(str,ch, i+1);
+// //   if(str[i] === ch){
+// //     count = count + 1 ;
+// //     return count;
+// //   }
+// //   return count;
+//     return (str[i] === ch ? 1 : 0) + countChar(str, ch, i+1);
+// }
+
+// console.log(countChar("banana", "a"));
+
+/********************************************** */
+
+
+function isSorted(arr, i = 0) {
+  // return true or false
+  if(!arr || arr.length === 0) return null;
+
   // Base case
-//   if(i === str.length-1){
-//     if(str[i] === ch ){
-//         return 1;
-//     }
-//     return 0;
-//   }
-    if(i === str.length) return 0;
+  if(i === arr.length -2 ){
+    // console.log("Base case...");
+    if(arr[i] <= arr[i+1]){
+        // console.log(`yup, Inside the base case, ${i} <= ${i+1}`);
+        return true;
+    }
+    return false;
+  }
 
   // Recursive case
-//   let count = countChar(str,ch, i+1);
-//   if(str[i] === ch){
-//     count = count + 1 ;
-//     return count;
-//   }
-//   return count;
-    return (str[i] === ch ? 1 : 0) + countChar(str, ch, i+1);
+//   console.log("Recursive Case...")
+  if(arr[i]<= arr[i+1]){
+    // console.log(`yup ${i} <= ${i+1}`);
+    return isSorted(arr, i+1);
+  }else{
+    return false;
+  }
+
 }
 
-console.log(countChar("banana", "a"));
+console.log(isSorted([-3,-2, 0, 1, 2, 3, 3, 4]));
