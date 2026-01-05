@@ -69,20 +69,22 @@ function countChar(str, ch, i = 0) {
   // return count
   if(!str || str.length === 0 ) return 0;
   // Base case
-  if(i === str.length-1){
-    if(str[i] === ch ){
-        return 1;
-    }
-    return 0;
-  }
+//   if(i === str.length-1){
+//     if(str[i] === ch ){
+//         return 1;
+//     }
+//     return 0;
+//   }
+    if(i === str.length) return 0;
 
   // Recursive case
-  let count = countChar(str,ch, i+1);
-  if(str[i] === ch){
-    count = count + 1 ;
-    return count;
-  }
-  return count;
+//   let count = countChar(str,ch, i+1);
+//   if(str[i] === ch){
+//     count = count + 1 ;
+//     return count;
+//   }
+//   return count;
+    return (str[i] === ch ? 1 : 0) + countChar(str, ch, i+1);
 }
 
 console.log(countChar("banana", "a"));
