@@ -97,11 +97,12 @@ function firstOccurenceRec(arr, target, low = 0, high = arr.length - 1){
 
   if(arr[mid] === target){
      let result = firstOccurenceRec(arr, target, low, mid -1);
-     if(result === -1){
-        return mid;
-     }else if( result < mid){
-        return result;
-     }
+    //  if(result === -1){
+    //     return mid;
+    //  }else if( result < mid){
+    //     return result;
+    //  }
+      return result !== -1 ? result : mid ; 
   }
 
   if(arr[mid] < target){
