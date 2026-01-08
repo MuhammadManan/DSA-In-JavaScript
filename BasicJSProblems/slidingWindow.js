@@ -51,30 +51,27 @@
 function longestUniqueSubstring(str) {
   // your code here
   
-  let left = 0; 
-  let strWindow = str[0];
+  let left = 0;
   let maxLength = 0
 
-  for(let right = 1; right < str.length; right++){
-       strWindow += str[right];
-       console.log("String Window: ", strWindow);
-       if(strWindow[left] === str[right]){
-        console.log("String Window: Before slice ", strWindow);
-        strWindow = strWindow.slice(left+1);
-        console.log("String Window: After slice ", strWindow);
-        console.log(`Max Length: ${maxLength}, strWindow length: ${strWindow.length}`);
-        maxLength = Math.max(maxLength, strWindow.length);
-        console.log("max lenght : ", maxLength);
-        console.log("left : ", left);
-        console.log("right : ", right);
-       }
-        console.log("right : ", right);
+  for(let right = 0; right < str.length; right++){
+        if(left !== right){
+            let index = left;
+            while(index<right){
+                if(str[index] === str[right]){
+                    maxLength = Math.max(maxLength, right - left );
+                    left = index + 1;
+                    break;
+                }
+                index++;
+            }
+        }
   }
 
   return maxLength;
 
 }
 
-console.log(longestUniqueSubstring("abcabcbb")); // 3
+// console.log(longestUniqueSubstring("abcabcbb")); // 3
 // console.log(longestUniqueSubstring("bbbbb"));    // 1
-// console.log(longestUniqueSubstring("pwwkew"));   // 3
+console.log(longestUniqueSubstring("pwwkew"));   // 3
