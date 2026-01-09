@@ -56,13 +56,10 @@ function longestUniqueSubstring(str) {
   let hashmap ={};
 
   for(let right = 0; right < str.length; right++){
-    if(!hashmap[str[right]]){
-        hashmap[str[right]] = right;
+    if(hashmap[str[right]] !== undefined){
+        left = Math.max(left, lastSeen[str[right]] + 1);
     }
-    else{
-        left = hashmap[str[right]] + 1 ;
-        hashmap[str[right]] = right;
-    }
+    hashmap[str[right]] = right;
     maxLength = Math.max(maxLength, right - left + 1);
   }
 
