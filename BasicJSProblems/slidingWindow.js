@@ -112,3 +112,7 @@
 
 let str = "eceba", k = 2;
 console.log(longestSubstringKDistinct(str,k));
+console.log(longestSubstringKDistinct("eceba", 2)); // 3
+console.log(longestSubstringKDistinct("aa", 1));    // 2
+console.log(longestSubstringKDistinct("abc", 1));   // 1
+console.log(longestSubstringKDistinct("aaaa", 2));  // 4
