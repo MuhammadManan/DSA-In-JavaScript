@@ -52,20 +52,18 @@ function longestUniqueSubstring(str) {
   // your code here
   
   let left = 0;
-  let maxLength = 0
+  let maxLength = 0;
+  let hashmap ={};
 
   for(let right = 0; right < str.length; right++){
-        if(left !== right){
-            let index = left;
-            while(index<right){
-                if(str[index] === str[right]){
-                    maxLength = Math.max(maxLength, right - left );
-                    left = index + 1;
-                    break;
-                }
-                index++;
-            }
-        }
+    if(!hashmap[str[right]]){
+        hashmap[str[right]] = right;
+    }
+    else{
+        left = hashmap[str[right]] + 1 ;
+        hashmap[str[right]] = right;
+    }
+    maxLength = Math.max(maxLength, right - left + 1);
   }
 
   return maxLength;
@@ -74,4 +72,5 @@ function longestUniqueSubstring(str) {
 
 // console.log(longestUniqueSubstring("abcabcbb")); // 3
 // console.log(longestUniqueSubstring("bbbbb"));    // 1
-console.log(longestUniqueSubstring("pwwkew"));   // 3
+// console.log(longestUniqueSubstring("pwwkew"));   // 3
+console.log(longestUniqueSubstring("abcdef")); // 6
