@@ -48,26 +48,67 @@
 
 /************************** **************/
 
-function longestUniqueSubstring(str) {
-  // your code here
+// function longestUniqueSubstring(str) {
+//   // your code here
   
+//   let left = 0;
+//   let maxLength = 0;
+//   let hashmap ={};
+
+//   for(let right = 0; right < str.length; right++){
+//     if(hashmap[str[right]] !== undefined){
+//         left = Math.max(left, lastSeen[str[right]] + 1);
+//     }
+//     hashmap[str[right]] = right;
+//     maxLength = Math.max(maxLength, right - left + 1);
+//   }
+
+//   return maxLength;
+
+// }
+
+// // console.log(longestUniqueSubstring("abcabcbb")); // 3
+// // console.log(longestUniqueSubstring("bbbbb"));    // 1
+// // console.log(longestUniqueSubstring("pwwkew"));   // 3
+// console.log(longestUniqueSubstring("abcdef")); // 6
+
+
+/**************************************************/
+
+ function longestSubstringKDistinct(str, k) {
+  if (k === 0 || str.length === 0) return 0;
+
   let left = 0;
   let maxLength = 0;
-  let hashmap ={};
+  let freq = {};
+  let distinctCount = 0;
 
-  for(let right = 0; right < str.length; right++){
-    if(hashmap[str[right]] !== undefined){
-        left = Math.max(left, lastSeen[str[right]] + 1);
+  for (let right = 0; right < str.length; right++) {
+    // add right character
+    if (freq[str[right]] === undefined) {
+      freq[str[right]] = 1;
+      distinctCount++;
+    } else {
+      freq[str[right]]++;
     }
-    hashmap[str[right]] = right;
+
+    // shrink window if invalid
+    while (distinctCount > k) {
+      freq[str[left]]--;
+      if (freq[str[left]] === 0) {
+        delete freq[str[left]];
+        distinctCount--;
+      }
+      left++;
+    }
+
+    // update answer when valid
     maxLength = Math.max(maxLength, right - left + 1);
   }
 
   return maxLength;
-
 }
 
-// console.log(longestUniqueSubstring("abcabcbb")); // 3
-// console.log(longestUniqueSubstring("bbbbb"));    // 1
-// console.log(longestUniqueSubstring("pwwkew"));   // 3
-console.log(longestUniqueSubstring("abcdef")); // 6
+
+let str = "eceba", k = 2;
+console.log(longestSubstringKDistinct(str,k));
