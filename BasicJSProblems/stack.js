@@ -55,5 +55,5 @@ function nextGreaterElement(arr) {
 }
 
 let inputArray =  [1, 3, 2, 4];
-console.log(nextGreaterElement(inputArray)); // Output: [3, 4, 4, -1]
-// console.log(nextGreaterElement([3,2,1])); // Output: [-1,-1,-1];
+// console.log(nextGreaterElement(inputArray)); // Output: [3, 4, 4, -1]
+console.log(nextGreaterElement([3,2,1])); // Output: [-1,-1,-1];
