@@ -34,18 +34,18 @@ function nextGreaterElement(arr) {
     if(stack.length === 0){
         stack.push(arr[i]);
     }
-    // else{
-    //     while(stack.length){
-    //         let peakEle = stack[stack.length - 1];
-    //         if(peakEle < arr[i]){
-    //             stack.pop(); 
-    //             outputArray.push(arr[i]);
-    //             continue;
-    //         } 
-    //         break;
-    //     }
-    //     stack.push(arr[i]);
-    // }
+    else{
+        while(stack.length){
+            let peakEle = stack[stack.length - 1];
+            if(peakEle < arr[i]){
+                stack.pop(); 
+                outputArray.push(arr[i]);
+                continue;
+            } 
+            break;
+        }
+        stack.push(arr[i]);
+    }
   }
   while(arr.length !== outputArray.length){
     outputArray.push(-1);
