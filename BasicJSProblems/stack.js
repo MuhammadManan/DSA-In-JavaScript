@@ -12,6 +12,12 @@
 
 // That’s it.
 
+// The Only Rule of Stack
+
+// LIFO — Last In, First Out
+
+// Whatever comes in last, goes out first.
+
 // function isValidParentheses(s){
 //     let stack = [];
 
