@@ -1,3 +1,17 @@
+// What Is a Stack? (No CS Words First)
+
+// Forget data structures.
+
+// Stack = a pile of plates
+
+// You put plates on top
+
+// You remove plates from the top
+
+// You cannot remove from the middle
+
+// That’s it.
+
 // function isValidParentheses(s){
 //     let stack = [];
 
