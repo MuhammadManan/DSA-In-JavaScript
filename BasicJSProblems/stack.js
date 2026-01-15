@@ -48,32 +48,21 @@
 
 function nextGreaterElement(arr) {
   // your code here 
-  let outputArray = []; 
-  let stack = []; 
-  // console.log(stack.length);
-  for(let i=0; i<arr.length; i++){ 
-    if(stack.length === 0){ 
-        stack.push(i);
-    } 
-    else{ 
-        while(stack.length){ 
-            let index = stack.pop();  
-            let peakEle = arr[index]; 
-            if(peakEle < arr[i]){ 
-                outputArray[index] = arr[i];
-                continue;
-            }
-            stack.push(index);
-            break;
-        } 
-        stack.push(i);
+  function nextGreaterElement(arr) {
+  let outputArray = new Array(arr.length).fill(-1);
+  let stack = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    while (stack.length && arr[stack[stack.length - 1]] < arr[i]) {
+      let index = stack.pop();
+      outputArray[index] = arr[i];
     }
-  } 
-  while(arr.length !== outputArray.length){
-    outputArray.push(-1);
-  } 
+    stack.push(i);
+  }
 
   return outputArray;
+}
+
 }
 
 console.log(nextGreaterElement([2, 1, 2, 4, 3])); // Output: [4,2,4,-1,-1]
