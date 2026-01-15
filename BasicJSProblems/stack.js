@@ -47,48 +47,36 @@
 /********************************************************* */
 
 function nextGreaterElement(arr) {
-  // your code here
-  // create an output array
-  let outputArray = [];
-  // create a stack
-  let stack = [];
-  // iterate through the input array
-  for(let i=0; i<arr.length; i++){
-    // check if the stack is empty
-    if(stack.length === 0){
-      // push the current element to the stack
-        stack.push(arr[i]);
-    }
-    // if the stack is not empty
-    else{
-      // check the top element of the stack
-        while(stack.length){
-          // compare the top element with the current element
-            let peakEle = stack[stack.length - 1];
-            // if the current element is greater than the top element
-            if(peakEle < arr[i]){
-              // pop the top element and add the current element to the output array
-                stack.pop(); 
-                // push the current element to the stack
-                outputArray.push(arr[i]);
-                // continue the loop
+  // your code here 
+  let outputArray = []; 
+  let stack = []; 
+  // console.log(stack.length);
+  for(let i=0; i<arr.length; i++){ 
+    if(stack.length === 0){ 
+        stack.push(i);
+    } 
+    else{ 
+        while(stack.length){ 
+            let index = stack.pop();  
+            let peakEle = arr[index]; 
+            if(peakEle < arr[i]){ 
+                outputArray[index] = arr[i];
                 continue;
-            } 
-            // if the current element is not greater than the top element
+            }
+            stack.push(index);
             break;
-        }
-        // push the current element to the stack
-        stack.push(arr[i]);
+        } 
+        stack.push(i);
     }
-  }
-  // for the remaining elements in the stack, add -1 to the output array
+  } 
   while(arr.length !== outputArray.length){
     outputArray.push(-1);
-  }
-  // return the output array 
+  } 
+
   return outputArray;
 }
 
+console.log(nextGreaterElement([2, 1, 2, 4, 3])); // Output: [4,2,4,-1,-1]
 let inputArray =  [1, 3, 2, 4];
-console.log(nextGreaterElement(inputArray)); // Output: [3, 4, 4, -1]
+// console.log(nextGreaterElement(inputArray)); // Output: [3, 4, 4, -1]
 // console.log(nextGreaterElement([3,2,1])); // Output: [-1,-1,-1];
