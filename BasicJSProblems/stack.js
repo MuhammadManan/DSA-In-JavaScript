@@ -72,35 +72,56 @@
 
 /********************************************************* */
 
-function prevSmaller(arr) {
-    let n = arr.length;
-    let result = new Array(n).fill(-1);
+// function prevSmaller(arr) {
+//     let n = arr.length;
+//     let result = new Array(n).fill(-1);
 
-    // stack to keep track of elements
-    let st = [];
+//     // stack to keep track of elements
+//     let st = [];
 
-    for (let i = 0; i < n; i++) {
+//     for (let i = 0; i < n; i++) {
         
-        // pop elements from stack until a smaller 
-        // element is found or stack becomes empty
-        while (st.length > 0 && st[st.length - 1] >= arr[i]) {
-            st.pop();
-        }
+//         // pop elements from stack until a smaller 
+//         // element is found or stack becomes empty
+//         while (st.length > 0 && st[st.length - 1] >= arr[i]) {
+//             st.pop();
+//         }
 
-        // if stack is not empty, top is nearest smaller
-        if (st.length > 0) {
-            result[i] = st[st.length - 1];
-        }
+//         // if stack is not empty, top is nearest smaller
+//         if (st.length > 0) {
+//             result[i] = st[st.length - 1];
+//         }
 
-        // push current element to stack
-        st.push(arr[i]);
-    }
-    return result;
-}
+//         // push current element to stack
+//         st.push(arr[i]);
+//     }
+//     return result;
+// }
 
-// Driver Code
-let arr = [1, 5, 0, 3, 4, 5];
-let ans = prevSmaller(arr);
-console.log(ans.join(" "));
+// // Driver Code
+// let arr = [1, 5, 0, 3, 4, 5];
+// let ans = prevSmaller(arr);
+// console.log(ans.join(" "));
 
 /******************************************* */
+
+function dailyTemperatures(temps) {
+  // your code here
+  let outputArray = new Array(temps.length).fill(0);
+  let stack = [];
+
+  for(let i=0; i<temps.length; i++){
+    if(!stack.length){
+      stack.push(i);
+    }
+    while(stack.length){
+      if(arr[stack[stack.length-1]] < arr[i]){
+        let answer = 
+      }
+    }
+  }
+
+}
+
+let Input =  [73, 74, 75, 71, 69, 72, 76, 73] // Output: [1, 1, 4, 2, 1, 1, 0, 0]
+console.log(dailyTemperatures(Input));
