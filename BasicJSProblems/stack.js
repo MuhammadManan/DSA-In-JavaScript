@@ -111,15 +111,15 @@ function dailyTemperatures(temps) {
   let stack = [];
 
   for(let i=0; i<temps.length; i++){
-    if(!stack.length){
-      stack.push(i);
+    while(stack.length && temps[stack[stack.length - 1]] < temps[i]){
+       let peakIndex = stack.pop();
+       let distanceOfDailyTemperature = i - peakIndex;
+       outputArray[peakIndex] = distanceOfDailyTemperature;
     }
-    while(stack.length){
-      if(arr[stack[stack.length-1]] < arr[i]){
-        let answer = 
-      }
-    }
+    stack.push(i);
   }
+
+  return outputArray;
 
 }
 
