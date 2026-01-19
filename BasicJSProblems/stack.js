@@ -131,8 +131,24 @@
 
 function stockSpan(prices) {
   // your code here
+  let outputArray = new Array(prices.length).fill(1);
+  let stack = []; 
+  let flag = false;
+  for(let i=0; i< prices.length; i++){
+    while(stack.length && prices[stack[stack.length - 1]] <= prices[i]){
+      stack.pop();
+      flag = true;
+    } 
+    if(flag){
+      outputArray[i] = i - (stack[stack.length-1]);
+      flag = false;
+    }
+    stack.push(i);
+  }
 
+  return outputArray;
 }
 
 
 let Input =  [100, 80, 60, 70, 60, 75, 85] //Output: [1,   1,  1,  2,  1,  4,  6]
+console.log(stockSpan(Input));
