@@ -105,23 +105,34 @@
 
 /******************************************* */
 
-function dailyTemperatures(temps) {
+// function dailyTemperatures(temps) {
+//   // your code here
+//   let outputArray = new Array(temps.length).fill(0);
+//   let stack = [];
+
+//   for(let i=0; i<temps.length; i++){
+//     while(stack.length && temps[stack[stack.length - 1]] < temps[i]){
+//        let peakIndex = stack.pop();
+//        let distanceOfDailyTemperature = i - peakIndex;
+//        outputArray[peakIndex] = distanceOfDailyTemperature;
+//     }
+//     stack.push(i);
+//   }
+
+//   return outputArray;
+
+// }
+
+// let Input =  [73, 74, 75, 71, 69, 72, 76, 73] // Output: [1, 1, 4, 2, 1, 1, 0, 0]
+// console.log(dailyTemperatures(Input));
+
+
+/*************************************************** */
+
+function stockSpan(prices) {
   // your code here
-  let outputArray = new Array(temps.length).fill(0);
-  let stack = [];
-
-  for(let i=0; i<temps.length; i++){
-    while(stack.length && temps[stack[stack.length - 1]] < temps[i]){
-       let peakIndex = stack.pop();
-       let distanceOfDailyTemperature = i - peakIndex;
-       outputArray[peakIndex] = distanceOfDailyTemperature;
-    }
-    stack.push(i);
-  }
-
-  return outputArray;
 
 }
 
-let Input =  [73, 74, 75, 71, 69, 72, 76, 73] // Output: [1, 1, 4, 2, 1, 1, 0, 0]
-console.log(dailyTemperatures(Input));
+
+let Input =  [100, 80, 60, 70, 60, 75, 85] //Output: [1,   1,  1,  2,  1,  4,  6]
