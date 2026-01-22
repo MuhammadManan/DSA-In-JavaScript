@@ -31,65 +31,65 @@
 /************************************** */
 
 // find the minimum length of the subArray which is equal to target
-function minSubArrayLen(target, arr) {
-  let left = 0;
-  let sum = 0;
-  let minLen = Infinity;
+// function minSubArrayLen(target, arr) {
+//   let left = 0;
+//   let sum = 0;
+//   let minLen = Infinity;
 
-  // loop goes from the zero Index to the  target length - 1 
-  for (let right = 0; right < arr.length; right++) {
-    // add the values in the sum variable
-    sum += arr[right];
+//   // loop goes from the zero Index to the  target length - 1 
+//   for (let right = 0; right < arr.length; right++) {
+//     // add the values in the sum variable
+//     sum += arr[right];
 
-    // and when the sum is greater than or equal to the target 
-    // then the while loop condition get true
-    while (sum >= target) {
-      // as we are finding the length, so 
-      // use the math min built-in function 
-      // right - left + 1 gives the exact length of the sub array
-      minLen = Math.min(minLen, right - left + 1);
-      // Then, remove the first value of element in the window who has sum total or greater than the target
-      sum -= arr[left];
-      // Obviously, when the value is removed, we have to increment the left by 1 
-      // and then again check the while loop wheather it is true or not.
-      left++;
-    }
-  }
+//     // and when the sum is greater than or equal to the target 
+//     // then the while loop condition get true
+//     while (sum >= target) {
+//       // as we are finding the length, so 
+//       // use the math min built-in function 
+//       // right - left + 1 gives the exact length of the sub array
+//       minLen = Math.min(minLen, right - left + 1);
+//       // Then, remove the first value of element in the window who has sum total or greater than the target
+//       sum -= arr[left];
+//       // Obviously, when the value is removed, we have to increment the left by 1 
+//       // and then again check the while loop wheather it is true or not.
+//       left++;
+//     }
+//   }
   
-  // Here, we return the length
-  return minLen === Infinity ? 0 : minLen;
-}
+//   // Here, we return the length
+//   return minLen === Infinity ? 0 : minLen;
+// }
 
 
-let arr = [2,3,1,2,4,3], target = 7;
+// let arr = [2,3,1,2,4,3], target = 7;
 
-console.log(minSubArrayLen(target, arr));
+// console.log(minSubArrayLen(target, arr));
 
 /************************** **************/
 
-// function longestUniqueSubstring(str) {
-//   // your code here
+function longestUniqueSubstring(str) {
+  // your code here
   
-//   let left = 0;
-//   let maxLength = 0;
-//   let hashmap ={};
+  let left = 0;
+  let maxLength = 0;
+  let hashmap ={};
 
-//   for(let right = 0; right < str.length; right++){
-//     if(hashmap[str[right]] !== undefined){
-//         left = Math.max(left, lastSeen[str[right]] + 1);
-//     }
-//     hashmap[str[right]] = right;
-//     maxLength = Math.max(maxLength, right - left + 1);
-//   }
+  for(let right = 0; right < str.length; right++){
+    if(hashmap[str[right]] !== undefined){
+        left = Math.max(left, lastSeen[str[right]] + 1);
+    }
+    hashmap[str[right]] = right;
+    maxLength = Math.max(maxLength, right - left + 1);
+  }
 
-//   return maxLength;
+  return maxLength;
 
-// }
+}
 
-// // console.log(longestUniqueSubstring("abcabcbb")); // 3
-// // console.log(longestUniqueSubstring("bbbbb"));    // 1
-// // console.log(longestUniqueSubstring("pwwkew"));   // 3
-// console.log(longestUniqueSubstring("abcdef")); // 6
+// console.log(longestUniqueSubstring("abcabcbb")); // 3
+// console.log(longestUniqueSubstring("bbbbb"));    // 1
+// console.log(longestUniqueSubstring("pwwkew"));   // 3
+console.log(longestUniqueSubstring("abcdef")); // 6
 
 
 /**************************************************/
