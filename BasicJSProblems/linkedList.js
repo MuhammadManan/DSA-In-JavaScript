@@ -27,4 +27,21 @@ function traverseLinkedList(head){
 }
 
 let head = n1;
-traverseLinkedList(head);
+// traverseLinkedList(head);
+
+
+// Let's Create the LinkedList
+function createLinkedList(arr) {
+    let head = new node(arr[0]);
+    let current = head;
+
+    for(let i=1; i<arr.length; i++){
+        current.next = new node(arr[i]);
+        current = current.next;
+    }
+
+    return head;
+}
+
+let head1 = createLinkedList([1,2,3,4]);
+traverseLinkedList(head1);
