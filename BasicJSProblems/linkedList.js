@@ -14,5 +14,17 @@ n1.next = n2;
 n2.next = n3;
 n3.next = n4;
 
-console.log(n1);
+//console.log(n1);
 
+// traverse the LinkedList
+function traverseLinkedList(head){
+    let current = head;
+
+    while(current !== null){
+        console.log(`${current.value}`);
+        current = current.next;
+    }
+}
+
+let head = n1;
+traverseLinkedList(head);
