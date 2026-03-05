@@ -127,3 +127,62 @@
 // let revHead = reverseLinkedList(head);
 // // console.log("revHead: ", revHead);
 // traverseLinkedList(revHead);
+
+//************************************ */
+
+
+// Reverse LinkedList 
+class Node{
+    constructor(data){
+        this.value = data;
+        this.next = null;
+    }
+}
+
+// Create LinkedList from array
+function arrayToLinkedList(arr){
+    if(arr.length === 0) return null;
+
+    let head = new Node(arr[0]);
+    let current = head;
+
+    for(let i=1; i<arr.length; i++){
+        current.next = new Node(arr[i]);
+        current = current.next;
+    }
+
+    return head;
+}
+
+// Reverse LinkedList using iteration
+function reverseLinkedList(head){
+    let temp = head;
+    let prev = null;
+    let front;
+
+    while(temp !== null){
+        front = temp.next;
+        temp.next = prev;
+        prev = temp;
+        temp = front;
+    }
+
+    head = prev;
+    return head;
+}
+
+// traverse the LinkedList
+function traverseLinkedList(head){
+    let current = head;
+
+    while(current !== null){
+        console.log(current.value);
+        current = current.next;
+    }
+}
+
+// let array = [1,2,3,4,5];
+let array = [];
+let head = arrayToLinkedList(array);
+let revHead = head !== null ? reverseLinkedList(head):null; 
+revHead !== null ? traverseLinkedList(revHead): console.log("revHed is Null");
