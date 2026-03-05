@@ -79,6 +79,8 @@ let n4 = new Node(4);
 // create a dynamic linkedList by passing array
 
 function createLinkedList(arr){
+    if(arr.length === 0 ) return "Array is Empty";
+
     let head = new Node(arr[0]);
     let current = head;
 
@@ -94,8 +96,22 @@ function createLinkedList(arr){
 
 // write a function to Reverse the linkedList
 function reverseLinkedList(head){
-    
+    // console.log("head: ", head);
+    let current = head;
+    // console.log("current", current);
+
+    while(true){
+        if(current.next === null){
+            head = current;
+            break;
+        }
+        current = current.next;
+    }
+    // console.log("current", current);
+    return head;
 }
 
 
 let head = createLinkedList([1,2,3,4]);
+let revHead = reverseLinkedList(head);
+// console.log("revHead: ", revHead);
