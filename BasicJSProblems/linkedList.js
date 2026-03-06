@@ -171,6 +171,23 @@ function reverseLinkedList(head){
     return head;
 }
 
+// function of Reverse LinkedList using recursion
+function reverseLinkedListUsingRecursion(current, front = null, prev = null){
+
+    if(current === null) {
+        return prev;
+    }
+
+    front = current.next;
+    current.next = prev;
+    prev = current;
+    current = front;
+
+    return reverseLinkedListUsingRecursion(current, front, prev);
+}
+
+
+
 // traverse the LinkedList
 function traverseLinkedList(head){
     let current = head;
@@ -181,8 +198,15 @@ function traverseLinkedList(head){
     }
 }
 
-// let array = [1,2,3,4,5];
-let array = [];
-let head = arrayToLinkedList(array);
-let revHead = head !== null ? reverseLinkedList(head):null; 
+let array = [1,2,3,4,5];
+// let array = [];
+let headIteration = arrayToLinkedList(array);
+let headRecursion = arrayToLinkedList(array);
+let revHead = headIteration !== null ? reverseLinkedList(headIteration):null; 
+// console.log("Iteration revHead: ", revHead);
+console.log("Reverse LinkedList Using Iteration");
 revHead !== null ? traverseLinkedList(revHead): console.log("revHed is Null");
+let revHeadRec = headRecursion !== null ? reverseLinkedListUsingRecursion(headRecursion):null; 
+// console.log("Recursion revHead: ", revHeadRec);
+console.log("Reverse LinkedList Using Recursion");
+revHeadRec !== null ? traverseLinkedList(revHeadRec): console.log("revHedRec is Null");
