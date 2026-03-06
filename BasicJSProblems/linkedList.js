@@ -261,7 +261,7 @@ n3.next = n4;
 n4.next = n5;
 n5.next = n3;
 
-// function to the detect the cycle in the linkedlist
+// function to the detect the cycle in the linkedlist using Slow and Fast Pointer
 function hasCycle(head) {
     let slow = head; 
     let fast = head;
@@ -275,5 +275,24 @@ function hasCycle(head) {
     return false;
 }
 
+// function to detect loop/cycle in the linkedList using hashmap
+function detectLoop(head){
+    let current = head;
+    let map = new Map();
+
+    while(current !== null && current.next !== null){
+        if(map.has(current)) return true;
+        map.set(current, 1);
+        current = current.next;
+    }
+    
+    // for(let [key,value] of map){
+    //     console.log(`key ${key.value} : value ${value}`);
+    // }
+
+    return false;
+}
+
 let head = n1;
 console.log(hasCycle(head));
+console.log(detectLoop(head));
