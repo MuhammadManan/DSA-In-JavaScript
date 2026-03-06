@@ -198,15 +198,45 @@ function traverseLinkedList(head){
     }
 }
 
-let array = [1,2,3,4,5];
-// let array = [];
-let headIteration = arrayToLinkedList(array);
-let headRecursion = arrayToLinkedList(array);
-let revHead = headIteration !== null ? reverseLinkedList(headIteration):null; 
-// console.log("Iteration revHead: ", revHead);
-console.log("Reverse LinkedList Using Iteration");
-revHead !== null ? traverseLinkedList(revHead): console.log("revHed is Null");
-let revHeadRec = headRecursion !== null ? reverseLinkedListUsingRecursion(headRecursion):null; 
-// console.log("Recursion revHead: ", revHeadRec);
-console.log("Reverse LinkedList Using Recursion");
-revHeadRec !== null ? traverseLinkedList(revHeadRec): console.log("revHedRec is Null");
+// let array = [1,2,3,4,5];
+// // let array = [];
+// let headIteration = arrayToLinkedList(array);
+// let headRecursion = arrayToLinkedList(array);
+// let revHead = headIteration !== null ? reverseLinkedList(headIteration):null; 
+// // console.log("Iteration revHead: ", revHead);
+// console.log("Reverse LinkedList Using Iteration");
+// revHead !== null ? traverseLinkedList(revHead): console.log("revHed is Null");
+// let revHeadRec = headRecursion !== null ? reverseLinkedListUsingRecursion(headRecursion):null; 
+// // console.log("Recursion revHead: ", revHeadRec);
+// console.log("Reverse LinkedList Using Recursion");
+// revHeadRec !== null ? traverseLinkedList(revHeadRec): console.log("revHedRec is Null");
+
+
+
+//**************************************** */
+
+// function about to find the Middle
+function findMiddle(head){
+    let slow = head;
+    let fast = head;
+
+    while(true){
+        // for even case
+        if(fast === null ) return slow;
+        // for odd case
+        if(fast.next === null) return slow;
+        slow = slow.next;
+        console.log("slow: ", slow);
+        fast = fast.next.next;
+        console.log("fast: ", fast);
+    }
+}
+
+let oddArr = [1,2,3,4,5];
+let oddHead = arrayToLinkedList(oddArr);
+let oddResult = findMiddle(oddHead);
+console.log("Odd Array Result: ", oddResult.value);
+let evenArr = [1,2,3,4,5,6];
+let evenHead = arrayToLinkedList(evenArr);
+let evenResult = findMiddle(evenHead);
+console.log("Even Array Result: ", evenResult.value);
