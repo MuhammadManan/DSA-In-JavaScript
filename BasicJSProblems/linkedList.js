@@ -220,16 +220,14 @@ function findMiddle(head){
     let slow = head;
     let fast = head;
 
-    while(true){
-        // for even case
-        if(fast === null ) return slow;
-        // for odd case
-        if(fast.next === null) return slow;
+    while(fast !== null && fast.next !== null){ 
         slow = slow.next;
-        console.log("slow: ", slow);
+        // console.log("slow: ", slow);
         fast = fast.next.next;
-        console.log("fast: ", fast);
+        // console.log("fast: ", fast);
     }
+
+    return slow;
 }
 
 let oddArr = [1,2,3,4,5];
