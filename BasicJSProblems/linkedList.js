@@ -154,37 +154,37 @@ function arrayToLinkedList(arr){
     return head;
 }
 
-// Reverse LinkedList using iteration
-function reverseLinkedList(head){
-    let temp = head;
-    let prev = null;
-    let front;
+// // Reverse LinkedList using iteration
+// function reverseLinkedList(head){
+//     let temp = head;
+//     let prev = null;
+//     let front;
 
-    while(temp !== null){
-        front = temp.next;
-        temp.next = prev;
-        prev = temp;
-        temp = front;
-    }
+//     while(temp !== null){
+//         front = temp.next;
+//         temp.next = prev;
+//         prev = temp;
+//         temp = front;
+//     }
 
-    head = prev;
-    return head;
-}
+//     head = prev;
+//     return head;
+// }
 
-// function of Reverse LinkedList using recursion
-function reverseLinkedListUsingRecursion(current, front = null, prev = null){
+// // function of Reverse LinkedList using recursion
+// function reverseLinkedListUsingRecursion(current, front = null, prev = null){
 
-    if(current === null) {
-        return prev;
-    }
+//     if(current === null) {
+//         return prev;
+//     }
 
-    front = current.next;
-    current.next = prev;
-    prev = current;
-    current = front;
+//     front = current.next;
+//     current.next = prev;
+//     prev = current;
+//     current = front;
 
-    return reverseLinkedListUsingRecursion(current, front, prev);
-}
+//     return reverseLinkedListUsingRecursion(current, front, prev);
+// }
 
 
 
@@ -216,25 +216,64 @@ function traverseLinkedList(head){
 //**************************************** */
 
 // function about to find the Middle
-function findMiddle(head){
-    let slow = head;
-    let fast = head;
+// function findMiddle(head){
+//     let slow = head;
+//     let fast = head;
 
-    while(fast !== null && fast.next !== null){ 
-        slow = slow.next;
-        // console.log("slow: ", slow);
-        fast = fast.next.next;
-        // console.log("fast: ", fast);
+//     while(fast !== null && fast.next !== null){ 
+//         slow = slow.next;
+//         // console.log("slow: ", slow);
+//         fast = fast.next.next;
+//         // console.log("fast: ", fast);
+//     }
+
+//     return slow;
+// }
+
+// let oddArr = [1,2,3,4,5];
+// let oddHead = arrayToLinkedList(oddArr);
+// let oddResult = findMiddle(oddHead);
+// console.log("Odd Array Result: ", oddResult.value);
+// let evenArr = [1,2,3,4,5,6];
+// let evenHead = arrayToLinkedList(evenArr);
+// let evenResult = findMiddle(evenHead);
+// console.log("Even Array Result: ", evenResult.value);
+
+
+/*********************************** */
+
+class CycleNode{
+    constructor(data){
+        this.value = data;
+        this.next = null;
     }
-
-    return slow;
 }
 
-let oddArr = [1,2,3,4,5];
-let oddHead = arrayToLinkedList(oddArr);
-let oddResult = findMiddle(oddHead);
-console.log("Odd Array Result: ", oddResult.value);
-let evenArr = [1,2,3,4,5,6];
-let evenHead = arrayToLinkedList(evenArr);
-let evenResult = findMiddle(evenHead);
-console.log("Even Array Result: ", evenResult.value);
+let n1 = new CycleNode(10);
+let n2 = new CycleNode(20);
+let n3 = new CycleNode(30);
+let n4 = new CycleNode(40);
+let n5 = new CycleNode(50);
+
+n1.next = n2;
+n2.next = n3;
+n3.next = n4;
+n4.next = n5;
+n5.next = n3;
+
+// function to the detect the cycle in the linkedlist
+function hasCycle(head) {
+    let slow = head; 
+    let fast = head;
+
+    while(fast !== null && fast.next !== null ){
+        slow = slow.next;
+        fast = fast.next.next;
+        if(slow === fast) return true;
+    }
+
+    return false;
+}
+
+let head = n1;
+console.log(hasCycle(head));
