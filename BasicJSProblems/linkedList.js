@@ -314,8 +314,47 @@ function findCycleStart(head){
     return null;
 }
 
-let head = n1;
-let start = findCycleStart(head);
-console.log("Cycle Starting Point: ", start ? start.value: "No cycle" );
-console.log(hasCycle(head));
-console.log(detectLoop(head));
+// let head = n1;
+// let start = findCycleStart(head);
+// console.log("Cycle Starting Point: ", start ? start.value: "No cycle" );
+// console.log(hasCycle(head));
+// console.log(detectLoop(head));
+
+
+// function to merge the two sorted linkedlist
+function mergeSortedLists(list1, list2){
+    let l1 = list1;
+    let l2 = list2;
+
+    let dummyNode = new CycleNode(-1);
+    let temp = dummyNode;
+
+    while(l1 !== null && l2 !== null){
+        if(l1.value < l2.value){
+            temp.next = l1;
+            temp = l1;
+            l1 = l1.next;
+        }
+        else{
+            temp.next = l2;
+            temp = l2;
+            l2 = l2.next;
+        }
+    }
+
+    if(l1 !== null){
+        temp.next = l1;
+    }
+    else{
+        temp.next = l2;
+    }
+
+    let head = dummyNode.next;
+    return head;
+}
+
+let list1 = arrayToLinkedList([1,3,5,7,8]);
+let list2 = arrayToLinkedList([2,4,6,9,10,12]);
+let mergeListHead = mergeSortedLists(list1, list2);
+traverseLinkedList(mergeListHead);
+
