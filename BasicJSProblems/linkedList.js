@@ -315,6 +315,7 @@ function findCycleStart(head){
 }
 
 let head = n1;
-console.log("Cycle Starting Point: ", findCycleStart(head).value);
+let start = findCycleStart(head);
+console.log("Cycle Starting Point: ", start ? start.value: "No cycle" );
 console.log(hasCycle(head));
 console.log(detectLoop(head));
