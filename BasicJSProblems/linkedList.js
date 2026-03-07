@@ -293,6 +293,28 @@ function detectLoop(head){
     return false;
 }
 
+// function to find the cycling point using full floyd's algo
+function findCycleStart(head){
+    let slow = head; 
+    let fast = head;
+
+    while(fast !== null && fast.next !== null){
+        slow = slow.next;
+        fast = fast.next.next;
+        if(slow === fast) {
+            slow = head;
+            while(slow !== fast){
+                slow = slow.next;
+                fast = fast.next;
+            }
+            return slow;
+        }
+    }
+
+    return null;
+}
+
 let head = n1;
+console.log("Cycle Starting Point: ", findCycleStart(head).value);
 console.log(hasCycle(head));
 console.log(detectLoop(head));
