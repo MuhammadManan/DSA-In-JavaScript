@@ -14,3 +14,12 @@ function preOrder(node){
     preOrder(node.left);
     preOrder(node.right);
 }
+
+// function to traverse binary tree through In-Order
+function inOrder(node){
+    if(!node) return ;
+
+    inOrder(node.left);
+    console.log(node.value);
+    inOrder(node.right);
+}
