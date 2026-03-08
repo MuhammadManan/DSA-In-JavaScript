@@ -23,3 +23,12 @@ function inOrder(node){
     console.log(node.value);
     inOrder(node.right);
 }
+
+// function to traverse binary tree through PostOrder
+function postOrder(node){
+    if(!node) return ;
+
+    postOrder(node.left);
+    postOrder(node.right);
+    console.log(node.value);
+}
