@@ -6,6 +6,40 @@ class BinaryTreeNode{
     }
 }
 
+// helper function to count the height of left tree
+function heightOfLeftTree(node){
+    let leftHeight = 0; 
+    while(node){
+        leftHeight++;
+        node = node.left;
+    }
+
+    return leftHeight;
+}
+
+// helper function to count the height of right tree
+function heightOfRightTree(node){
+    let rightHeight = 0;
+    while(node){
+        rightHeight++;
+        node = node.right;
+    }
+
+    return rightHeight;
+}
+
+// function to count the node in the complete binary tree
+function countNode(node){
+    if(!node) return 0;
+
+    let lH = heightOfLeftTree(node);
+    let rH = heightOfRightTree(node);
+
+    if(lH === rH) return ( 2**lH ) - 1;
+
+    return 1 + countNode(node.left) + countNode(node.right);
+}
+
 // function to traverse binary tree through PreOrder
 function preOrder(node){
     if(!node) return ;
