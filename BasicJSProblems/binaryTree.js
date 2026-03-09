@@ -66,3 +66,13 @@ function postOrder(node){
     postOrder(node.right);
     console.log(node.value);
 }
+
+//function to find the maxDepth of the tree
+function maxDepth(root){
+    if(!root) return 0;
+
+    let left = maxDepth(root.left);
+    let right = maxDepth(root.right);
+
+    return 1 + Math.max(left,right);
+}
