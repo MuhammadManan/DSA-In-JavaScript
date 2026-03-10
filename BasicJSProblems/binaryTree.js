@@ -76,3 +76,26 @@ function maxDepth(root){
 
     return 1 + Math.max(left,right);
 }
+
+// function to invert the tree
+function invertTree(root){
+    if(!root) return null;
+
+    let left = invertTree(root.left);
+    let right = invertTree(root.right);
+
+    root.left = right;
+    root.right = left;
+
+    return root;
+}
+
+let n1 = new BinaryTreeNode(4);
+let n2 = new BinaryTreeNode(2);
+let n3 = new BinaryTreeNode(7);
+
+n1.left = n2;
+n1.right = n3;
+
+let root = n1;
+invertTree(root);
