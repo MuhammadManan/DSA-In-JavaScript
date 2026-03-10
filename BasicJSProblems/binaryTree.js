@@ -90,12 +90,42 @@ function invertTree(root){
     return root;
 }
 
-let n1 = new BinaryTreeNode(4);
+//function to find the is Both Trees are identical
+function isSameTree(root1, root2){
+    if(!root1 && !root2){
+        return true;
+    }
+
+    if(!root1 || !root2){
+        return false;
+    }
+
+    if(root1.value !== root2.value){
+        return false;
+    }
+
+    let left = isSameTree(root1.left, root2.left);
+    let right = isSameTree(root1.right, root2.right);
+
+    return left && right;
+}
+
+// Tree1
+let n1 = new BinaryTreeNode(1);
 let n2 = new BinaryTreeNode(2);
-let n3 = new BinaryTreeNode(7);
+let n3 = new BinaryTreeNode(3);
 
 n1.left = n2;
 n1.right = n3;
+let root1 = n1;
 
-let root = n1;
-invertTree(root);
+// Tree2
+let m1 = new BinaryTreeNode(1);
+let m2 = new BinaryTreeNode(2);
+let m3 = new BinaryTreeNode(3);
+
+m1.left = m2;
+m1.right = m3;
+let root2 = m1;
+
+console.log(isSameTree(root1, root2));
