@@ -110,6 +110,7 @@ function isSameTree(root1, root2){
     return left && right;
 }
 
+
 // Tree1
 let n1 = new BinaryTreeNode(1);
 let n2 = new BinaryTreeNode(2);
@@ -129,3 +130,30 @@ m1.right = m3;
 let root2 = m1;
 
 console.log(isSameTree(root1, root2));
+
+
+//function to traverse the tree in the level order
+function levelOrder(root){
+    let ans = [];
+    if(!root) return ans;
+
+    let q = [];
+    q.push(root);
+
+    while(q.length > 0){
+        let size = q.length;
+        let level = [];
+
+        for(let i=0; i<size; i++){
+            let node = q.shift();
+
+            if(node.left) q.push(node.left);
+            if(node.right) q.push(node.right);
+
+            level.push(node.value);
+        }
+        ans.push(level);
+    }
+
+    return ans;
+}
