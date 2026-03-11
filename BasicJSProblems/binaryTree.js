@@ -157,3 +157,26 @@ function levelOrder(root){
 
     return ans;
 }
+
+// function to traverse the tree Iteratively with PreOrder using stack
+function preOrderItervative(root){
+    let preOrder = [];
+    if(!root) return preOrder;
+
+    let stack = [];
+    stack.push(root);
+
+    while(stack.length){
+        let node = stack.pop()
+        preOrder.push(node.value);
+
+        if(node.right){
+            stack.push(node.right);
+        }
+        if(node.left){
+            stack.push(node.left);
+        }
+    }
+
+    return preOrder;
+} 
