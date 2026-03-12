@@ -203,3 +203,25 @@ function inOrderIterative(root){
     
     return inOrder;
 }
+
+// function to traverse the tree Iteratively for the Post-order using the two stack 
+function postOrderIteravtiveUsingTwoStack(root){
+    let postOrder = [];
+    if(!root) return postOrder;
+    let stack1 = [];
+    let stack2 = [];
+
+    stack1.push(root);
+    while(stack1.length > 0){
+        root = stack1.pop();
+        stack2.push(root);
+
+        if(root.left !== null) stack1.push(root.left);
+        if(root.right !== null) stack1.push(root.right);
+    }
+    while(stack2.length > 0){
+        postOrder.push(stack2.pop().value);
+    }
+
+    return postOrder;
+}
