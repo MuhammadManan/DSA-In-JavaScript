@@ -159,7 +159,7 @@ function levelOrder(root){
 }
 
 // function to traverse the tree Iteratively with PreOrder using stack
-function preOrderItervative(root){
+function preOrderIterative(root){
     let preOrder = [];
     if(!root) return preOrder;
 
@@ -180,3 +180,26 @@ function preOrderItervative(root){
 
     return preOrder;
 } 
+
+// function to traverse the tree Iteratively for the Inorder using the stack 
+function inOrderIterative(root){
+    let inOrder = [];
+    if(!root) return inOrder;
+    let node = root;
+    let stack = [];
+
+    while(true){
+        if(node){
+            stack.push(node);
+            node = node.left;
+        }
+        else{
+            if(stack.length === 0 ) break;
+            node = stack.pop();
+            inOrder.push(node.value);
+            node = node.right;
+        }
+    }
+    
+    return inOrder;
+}
