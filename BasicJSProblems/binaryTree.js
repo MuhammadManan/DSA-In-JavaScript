@@ -206,22 +206,36 @@ function inOrderIterative(root){
 
 // function to traverse the tree Iteratively for the Post-order using the two stack 
 function postOrderIteravtiveUsingTwoStack(root){
+    // we can also do the post-order traversal using one stack but it is a bit tricky to implement
     let postOrder = [];
     if(!root) return postOrder;
+    // we will use two stack to store the nodes of the tree and then we will pop the nodes from the second stack and push the values in the postOrder array
     let stack1 = [];
     let stack2 = [];
 
+    // we will push the root node in the first stack and then we will pop the nodes from the first stack and push the left and right child of the popped node in the first stack and also push the popped node in the second stack and then we will pop the nodes from the second stack and push the values in the postOrder array
     stack1.push(root);
+    
+    // we will continue this process until the first stack is empty and then we will pop the nodes from the second stack and push the values in the postOrder array
     while(stack1.length > 0){
+        // we will pop the node from the first stack and push the left and right child of the popped node in the first stack and also push the popped node in the second stack
         root = stack1.pop();
+        // we will push the popped node in the second stack
         stack2.push(root);
 
+        // we will push the left and right child of the popped node in the first stack
         if(root.left !== null) stack1.push(root.left);
+        // we will push the right child of the popped node in the first stack
         if(root.right !== null) stack1.push(root.right);
     }
+
+    // we will pop the nodes from the second stack and push the values in the postOrder array
     while(stack2.length > 0){
+        // we will pop the node from the second stack and push the value in the postOrder array
         postOrder.push(stack2.pop().value);
     }
 
+    // we will return the postOrder array
     return postOrder;
 }
+
