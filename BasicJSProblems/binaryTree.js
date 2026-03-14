@@ -239,3 +239,35 @@ function postOrderIteravtiveUsingTwoStack(root){
     return postOrder;
 }
 
+// function to traverse the tree Iteratively for the Post-order using the One stack 
+function postOrderIterativeUsingOneStack(root){
+    let postOrder = [];
+    if(!root) return postOrder;
+
+    let temp = null;
+    let current = root;
+    let stack = [];
+
+    while(current || stack.length > 0){
+        if(current){
+            stack.push(current);
+            current = current.left;
+        }
+        else{
+            temp = stack[stack.length-1].right;
+            if(!temp){
+                temp = stack.pop();
+                postOrder.push(temp.value);
+                while(stack.length > 0 && temp === stack[stack.length-1].right){
+                    temp = stack.pop()
+                    postOrder.push(temp.value);
+                }
+            }
+            else{
+                current = temp;
+            }
+        }
+    }
+
+    return postOrder;
+}
