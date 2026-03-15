@@ -271,3 +271,44 @@ function postOrderIterativeUsingOneStack(root){
 
     return postOrder;
 }
+
+// function to traverse pre, In, Post Order through one stack at a single time
+function traverseInPrePost(root){
+    let stack = [];
+    let pre = [];
+    let In = [];
+    let post = [];
+
+    if(!root) return ;
+
+    stack.push({node: root, state: 1});
+    
+    while(stack.length){
+        let it = stack.pop()
+
+        if(it.state === 1){
+            pre.push(it.node.value);
+            it.state++;
+            stack.push(it);
+
+            if(it.node.left !== null){
+                stack.push({node: it.node.left, state: 1});
+            }
+        }
+        else if(it.state === 2){
+            In.push(it.node.value);
+            it.state++;
+            stack.push(it);
+
+            if(it.node.right !== null){
+                stack.push({node: it.node.right, state: 1});
+            }
+        }
+        else{
+            post.push(it.node.value);
+        }
+    }
+
+    return [pre,In,post];
+
+}
