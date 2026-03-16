@@ -312,3 +312,13 @@ function traverseInPrePost(root){
     return [pre,In,post];
 
 }
+
+
+function maxDepth(root){
+    if(!root) return 0;
+
+    let l = maxDepth(root.left);
+    let r = maxDepth(root.right);
+
+    return 1 + max(l,r);
+}
