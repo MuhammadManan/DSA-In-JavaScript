@@ -313,7 +313,7 @@ function traverseInPrePost(root){
 
 }
 
-
+// function to find the maximum depth of the tree
 function maxDepth(root){
     if(!root) return 0;
 
@@ -321,4 +321,23 @@ function maxDepth(root){
     let r = maxDepth(root.right);
 
     return 1 + max(l,r);
+}
+
+// function to find about the tree is balanced or not
+function isBalance(root){
+    return dfsHeight(root) !== -1;
+}
+
+function dfsHeight(root){
+    if(!root) return 0;
+
+    let lH = dfsHeight(root.left);
+    if(lH === -1) return -1;
+
+    let rH = dfsHeight(root.right);
+    if(rH === -1) return -1;
+
+    if(Math.abs(lH - rH) > 1) return -1;
+
+    return max(lH, rH) + 1;
 }
