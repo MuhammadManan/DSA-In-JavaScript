@@ -320,7 +320,7 @@ function maxDepth(root){
     let l = maxDepth(root.left);
     let r = maxDepth(root.right);
 
-    return 1 + max(l,r);
+    return 1 + Math.max(l,r);
 }
 
 // function to find about the tree is balanced or not
@@ -339,5 +339,23 @@ function dfsHeight(root){
 
     if(Math.abs(lH - rH) > 1) return -1;
 
-    return max(lH, rH) + 1;
+    return Math.max(lH, rH) + 1;
+}
+
+// function to find diameter of binary tree
+function diameterOfBinaryTree(root){
+    let maxDiameter = 0;
+    height(root,maxDiameter);
+    return maxDiameter;
+}
+
+function height(root, maxDiameter){
+    if(!root) return 0;
+
+    let lH = height(root.left, maxDiameter);
+    let rH = height(root.right, maxDiameter);
+
+    maxDiameter = Math.max(maxDiameter, lH+rH);
+    
+    return 1 + Math.max(lH, rH);
 }
