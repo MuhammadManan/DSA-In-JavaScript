@@ -349,6 +349,7 @@ function diameterOfBinaryTree(root){
     return maxDiameter;
 }
 
+// helper function to find the height of the tree and also update the maxDiameter variable
 function height(root, maxDiameter){
     if(!root) return 0;
 
