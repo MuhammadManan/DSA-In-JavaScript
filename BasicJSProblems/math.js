@@ -19,4 +19,10 @@ function factorial(n){
 
 console.log(factorial(5));
 
-// function to find the power of a nu
+// function to find the power of a number
+function power(base, exponent){
+    if(exponent === 0) return 1;
+    return base * power(base, exponent - 1);
+}
+
+console.log(power(2, 3));
