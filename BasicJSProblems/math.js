@@ -10,3 +10,13 @@ function extractDigit(num){
 }
 
 extractDigit(1234);
+
+// function to find the factorial of a number
+function factorial(n){
+    if(n === 0 || n === 1) return 1;
+    return n * factorial(n - 1);
+}
+
+console.log(factorial(5));
+
+// function to find the power of a nu
