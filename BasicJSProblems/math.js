@@ -26,3 +26,12 @@ function power(base, exponent){
 }
 
 console.log(power(2, 3));
+
+// function to find the greatest common divisor (GCD) of two numbers
+
+function gcd(a, b){
+    if(b === 0) return a;
+    return gcd(b, a % b);
+}  
+
+console.log(gcd(12, 15));
