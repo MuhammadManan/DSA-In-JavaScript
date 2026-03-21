@@ -43,3 +43,13 @@ function lcm(a, b){
 }
 
 console.log(lcm(12, 15));
+
+// function to find the nth Fibonacci number
+
+function fibonacci(n){
+    if(n === 0) return 0;
+    if(n === 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}   
+
+console.log(fibonacci(10));
