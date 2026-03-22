@@ -71,3 +71,13 @@ function countDigits(num){
 }
 
 console.log(countDigits(1234));
+
+// function to find the nth term of the Fibonacci sequence
+
+function fibonacci(n){
+    if(n === 0) return 0;
+    if(n === 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+console.log(fibonacci(10));
