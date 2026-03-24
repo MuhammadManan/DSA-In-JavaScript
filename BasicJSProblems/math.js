@@ -106,3 +106,10 @@ function gcd(a, b){
 }
 
 console.log(gcd(12, 15));
+
+// function to find the least common multiple (LCM) of two numbers
+function lcm(a, b){
+    return (a * b) / gcd(a, b);
+}
+
+console.log(lcm(12, 15));
