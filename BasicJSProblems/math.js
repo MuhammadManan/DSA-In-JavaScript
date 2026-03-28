@@ -164,3 +164,27 @@ function findCycleStart(head){
     return null;
 }
 
+// function to find the length of the cycle in a linked list
+function findCycleLength(head){
+    let slow = head; 
+    let fast = head;
+
+    while(fast !== null && fast.next !== null){
+        slow = slow.next;
+        fast = fast.next.next;
+        if(slow === fast) {
+            slow = head;
+            let count = 0;
+            while(slow !== fast){
+                slow = slow.next;
+                fast = fast.next;
+                count++;
+            }
+            return count;
+        }
+    }
+
+    return null;    
+}
+
+findCycleLength(head);
