@@ -221,3 +221,13 @@ function detectLoop(head){
 }
 
 detectLoop(head);
+
+// function to traverse binary tree through InOrder
+function inOrder(node){
+    if(!node) return ;
+    inOrder(node.left);
+    console.log(node.value);
+    inOrder(node.right);
+}
+
+inOrder(root);
