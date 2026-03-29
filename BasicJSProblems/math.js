@@ -205,3 +205,19 @@ function hasCycle(head){
 }
 
 hasCycle(head);
+
+// function to check if the linked list has a cycle using hashmap
+function detectLoop(head){
+    let current = head;
+    let map = new Map();
+
+    while(current !== null && current.next !== null){
+        if(map.has(current)) return true;
+        map.set(current, 1);
+        current = current.next;
+    }
+    
+    return false;
+}
+
+detectLoop(head);
