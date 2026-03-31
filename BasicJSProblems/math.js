@@ -231,3 +231,13 @@ function inOrder(node){
 }
 
 inOrder(root);
+
+// function to traverse binary tree through PreOrder
+function preOrder(node){
+    if(!node) return ;
+    console.log(node.value);
+    preOrder(node.left);
+    preOrder(node.right);
+}
+
+preOrder(root);
