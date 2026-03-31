@@ -241,3 +241,13 @@ function preOrder(node){
 }
 
 preOrder(root);
+
+// function to traverse binary tree through PostOrder
+function postOrder(node){
+    if(!node) return ;
+    postOrder(node.left);
+    postOrder(node.right);
+    console.log(node.value);
+}
+
+postOrder(root);
