@@ -251,3 +251,15 @@ function postOrder(node){
 }
 
 postOrder(root);
+
+// function to find the height of a binary tree
+function maxDepth(root){
+    if(!root) return 0;
+
+    let l = maxDepth(root.left);
+    let r = maxDepth(root.right);
+
+    return 1 + Math.max(l,r);
+}   
+
+console.log(maxDepth(root));
