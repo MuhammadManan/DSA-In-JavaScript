@@ -263,3 +263,19 @@ function maxDepth(root){
 }   
 
 console.log(maxDepth(root));
+
+
+// function to invert a binary tree
+function invertTree(root){
+    if(!root) return null;
+
+    let left = invertTree(root.left);
+    let right = invertTree(root.right);    
+
+    root.left = right;
+    root.right = left;
+
+    return root;
+}   
+
+invertTree(root);
