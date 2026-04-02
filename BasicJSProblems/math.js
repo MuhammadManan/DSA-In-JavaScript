@@ -279,3 +279,20 @@ function invertTree(root){
 }   
 
 invertTree(root);
+
+// function to find the diameter of a binary tree
+function diameterOfBinaryTree(root){
+    let diameter = 0;
+    height(root, diameter);
+    return diameter;
+}
+
+function height(node, diameter){
+    if(!node) return 0; 
+
+    let l = height(node.left, diameter);
+    let r = height(node.right, diameter);
+    diameter = Math.max(diameter, l + r);
+
+    return 1 + Math.max(l,r);
+}
