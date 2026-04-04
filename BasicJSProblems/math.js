@@ -336,3 +336,17 @@ function longestCommonPrefix(strs){
 } 
 
 console.log(longestCommonPrefix(["flower","flow","flight"]));
+
+// function to find the longest common suffix among an array of strings
+function longestCommonSuffix(strs){
+    if(strs.length === 0) return "";
+    let suffix = strs[0];
+    for(let i=1; i<strs.length; i++){
+        while(strs[i].lastIndexOf(suffix) !== strs[i].length - suffix.length){
+            suffix = suffix.substring(1);
+        }
+    }
+    return suffix;
+} 
+
+console.log(longestCommonSuffix(["flower","flow","flight"]));
