@@ -320,3 +320,19 @@ function countNeighbors(grid, i, j){
 
 
 console.log(islandPerimeter([[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]));
+
+// some new problems
+
+// function to find the longest common prefix among an array of strings
+function longestCommonPrefix(strs){
+    if(strs.length === 0) return "";
+    let prefix = strs[0];
+    for(let i=1; i<strs.length; i++){
+        while(strs[i].indexOf(prefix) !== 0){
+            prefix = prefix.substring(0, prefix.length - 1);
+        }
+    }
+    return prefix;
+} 
+
+console.log(longestCommonPrefix(["flower","flow","flight"]));
