@@ -364,3 +364,17 @@ function longestCommonSubstring(strs){
 } 
 
 console.log(longestCommonSubstring(["flower","flow","flight"]));
+
+// function to find the longest common subsequence among an array of strings
+function longestCommonSubsequence(strs){
+    if(strs.length === 0) return "";
+    let subsequence = strs[0];
+    for(let i=1; i<strs.length; i++){
+        while(strs[i].indexOf(subsequence) !== 0){
+            subsequence = subsequence.substring(0, subsequence.length - 1);
+        }
+    }
+    return subsequence;
+} 
+
+console.log(longestCommonSubsequence(["flower","flow","flight"]));
