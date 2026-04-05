@@ -350,3 +350,17 @@ function longestCommonSuffix(strs){
 } 
 
 console.log(longestCommonSuffix(["flower","flow","flight"]));
+
+// function to find the longest common substring among an array of strings
+function longestCommonSubstring(strs){
+    if(strs.length === 0) return "";
+    let substring = strs[0];
+    for(let i=1; i<strs.length; i++){
+        while(strs[i].indexOf(substring) !== 0){
+            substring = substring.substring(0, substring.length - 1);
+        }
+    }
+    return substring;
+} 
+
+console.log(longestCommonSubstring(["flower","flow","flight"]));
