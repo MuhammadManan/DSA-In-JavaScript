@@ -402,3 +402,27 @@ function commonPrefix(str1, str2){
 }
 
 console.log(longestCommonPrefixDivideAndConquer(["flower","flow","flight"]));
+
+// function to find the longest common suffix among an array of strings using divide and conquer
+function longestCommonSuffixDivideAndConquer(strs){
+    if(strs.length === 0) return "";
+    return longestCommonSuffixHelper(strs, 0, strs.length - 1);
+}
+
+function longestCommonSuffixHelper(strs, left, right){
+    if(left === right) return strs[left];
+    let mid = Math.floor((left + right) / 2);
+    let lcsLeft = longestCommonSuffixHelper(strs, left, mid);
+    let lcsRight = longestCommonSuffixHelper(strs, mid + 1, right);
+    return commonSuffix(lcsLeft, lcsRight);
+}
+
+function commonSuffix(str1, str2){
+    let minLength = Math.min(str1.length, str2.length);
+    for(let i=minLength-1; i>=0; i--){
+        if(str1[i] !== str2[i]) return str1.substring(i+1);
+    }
+    return str1.substring(0, minLength);
+}
+
+console.log(longestCommonSuffixDivideAndConquer(["flower","flow","flight"]));
