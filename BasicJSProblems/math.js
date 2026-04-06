@@ -378,3 +378,27 @@ function longestCommonSubsequence(strs){
 } 
 
 console.log(longestCommonSubsequence(["flower","flow","flight"]));
+
+// function to find the longest common prefix among an array of strings using divide and conquer
+function longestCommonPrefixDivideAndConquer(strs){
+    if(strs.length === 0) return "";
+    return longestCommonPrefixHelper(strs, 0, strs.length - 1);
+}
+
+function longestCommonPrefixHelper(strs, left, right){
+    if(left === right) return strs[left];
+    let mid = Math.floor((left + right) / 2);
+    let lcpLeft = longestCommonPrefixHelper(strs, left, mid);
+    let lcpRight = longestCommonPrefixHelper(strs, mid + 1, right);
+    return commonPrefix(lcpLeft, lcpRight);
+}
+
+function commonPrefix(str1, str2){
+    let minLength = Math.min(str1.length, str2.length);
+    for(let i=0; i<minLength; i++){
+        if(str1[i] !== str2[i]) return str1.substring(0, i);
+    }
+    return str1.substring(0, minLength);
+}
+
+console.log(longestCommonPrefixDivideAndConquer(["flower","flow","flight"]));
