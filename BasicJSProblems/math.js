@@ -426,3 +426,27 @@ function commonSuffix(str1, str2){
 }
 
 console.log(longestCommonSuffixDivideAndConquer(["flower","flow","flight"]));
+
+// function to find the longest common substring among an array of strings using divide and conquer
+function longestCommonSubstringDivideAndConquer(strs){
+    if(strs.length === 0) return "";
+    return longestCommonSubstringHelper(strs, 0, strs.length - 1);
+}
+
+function longestCommonSubstringHelper(strs, left, right){
+    if(left === right) return strs[left];
+    let mid = Math.floor((left + right) / 2);
+    let lcsLeft = longestCommonSubstringHelper(strs, left, mid);
+    let lcsRight = longestCommonSubstringHelper(strs, mid + 1, right);
+    return commonSubstring(lcsLeft, lcsRight);
+}
+
+function commonSubstring(str1, str2){
+    let minLength = Math.min(str1.length, str2.length);
+    for(let i=0; i<minLength; i++){
+        if(str1[i] !== str2[i]) return str1.substring(0, i);
+    }
+    return str1.substring(0, minLength);
+}
+
+console.log(longestCommonSubstringDivideAndConquer(["flower","flow","flight"]));
